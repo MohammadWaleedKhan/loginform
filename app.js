@@ -4,9 +4,7 @@ const email = document.getElementById('email');
 const password = document.getElementById('password');
 const cpassword = document.getElementById('cpassword');
 const phone = document.getElementById('phone');
-// const loginForm = document.getElementById('login-form');
-// const loginEmail = document.getElementById('login-email')
-// const loginPassword = document.getElementById('login-password')
+
 
 // ADD EVENTLISTENER
 
@@ -19,7 +17,12 @@ const sendData = (usernameVal, sRate, count) => {
     if (sRate === count) {
         alert('registration successfull');
         swal("Welcome!"+ usernameVal, "Registration Successful", "success");
+        if(swal === true) {
+            window.href = login.html
+        }
+        return;
     }
+    
 }
 
 // FOR FINAL DATA VALIDATION
@@ -121,7 +124,22 @@ const validate = () => {
     }
     successMsg(usernameVal);
 
+    let user = []
+
+    let newusers = {
+        usernameVal,
+        emailVal,
+        passwordVal,
+        cpasswordVal,
+        phoneVal,
+    };
+
+    user.push(newusers);
+    localStorage.setItem("user", JSON.stringify(user));
+
 }
+
+// LOCAL STORAGE
 
 
 function setErrorMsg(input, errormsgs) {
@@ -136,8 +154,6 @@ function setSuccessMsg(input) {
     formControl.className = "form-control success";
 }
 
-
-// LOGIN FORM VALIDATION
 
 
 
