@@ -4,6 +4,15 @@ const email = document.getElementById('email');
 const password = document.getElementById('password');
 const cpassword = document.getElementById('cpassword');
 const phone = document.getElementById('phone');
+let user = [];
+
+(() => {
+    let check = JSON.parse(localStorage.getItem('user'))
+    if(check)
+    {
+        user = check
+    }
+})();
 
 
 // ADD EVENTLISTENER
@@ -124,7 +133,7 @@ const validate = () => {
     }
     successMsg(usernameVal);
 
-    let user = []
+   
 
     let newusers = {
         usernameVal,
